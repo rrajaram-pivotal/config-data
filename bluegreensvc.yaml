@@ -1,1 +1,1 @@
-eureka.server.url: http://eurekaserverapp.cfapps.io
+eureka.client.serviceUrl.defaultZone: http://eurekaserverapp.cfapps.io
