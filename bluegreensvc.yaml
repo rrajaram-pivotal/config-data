@@ -1,1 +1,9 @@
-eureka.client.serviceUrl.defaultZone: http://eurekaserverapp.cfapps.io
+#eureka.client.serviceUrl.defaultZone: http://eurekaserverapp.cfapps.io
+eureka.instance.preferIpAddress=true
+eureka.client.registerWithEureka=true
+eureka.client.fetchRegistry=true
+eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://eurekaserverapp.cfapps.io/eureka}
+eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id:${random.value}}
+eureka.instance.initial-status=OUT_OF_SERVICE
+management.endpoints.web.exposure.include=*
+
