@@ -1,9 +1,28 @@
-#eureka.client.serviceUrl.defaultZone: http://eurekaserverapp.cfapps.io
-eureka.instance.preferIpAddress=true
-eureka.client.registerWithEureka=true
-eureka.client.fetchRegistry=true
-eureka.client.serviceUrl.defaultZone=${EUREKA_URI:http://eurekaserverapp.cfapps.io/eureka}
-eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id:${random.value}}
-eureka.instance.initial-status=OUT_OF_SERVICE
-management.endpoints.web.exposure.include=*
-
+eureka:
+ instance:
+  preferIpAddress: true
+  instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  initial-status: OUT_OF_SERVICE
+ client:
+  registerWithEureka: true
+  fetchRegistry: true
+  serviceUrl: 
+   defaultZone: ${EUREKA_URI:http://eurekaserverapp.cfapps.io/eureka}
+management:
+ endpoints: 
+  web:
+   exposure:
+    include: "*"
+---
+ spring: 
+  profiles: blue
+  color: blue
+  server:
+   port: 8013
+---    
+ spring:
+  profiles: green
+  color: green
+  server:
+   port: 8014 
+    
